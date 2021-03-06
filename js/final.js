@@ -243,7 +243,7 @@ fullscreen_icon.addEventListener("click", function () {
        mayPlayerWrapper.webkitRequestFullScreen();
     }
 
-    screen.orientation.unlock();
+    // screen.orientation.unlock();
 
     screen.orientation.lock("landscape-primary").then(function() {})
         .catch(function(error) {
