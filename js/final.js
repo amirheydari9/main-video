@@ -237,11 +237,13 @@ theater.addEventListener('click', function () {
 fullscreen_icon.addEventListener("click", function () {
 
     if(document.documentElement.requestFullscreen){
-        document.querySelector(".myplayer").requestFullscreen();
+       mayPlayerWrapper.requestFullscreen();
     }
     else if(document.documentElement.webkitRequestFullScreen){
-        document.querySelector(".myplayer").webkitRequestFullScreen();
+       mayPlayerWrapper.webkitRequestFullScreen();
     }
+
+    screen.orientation.unlock();
 
     screen.orientation.lock("landscape-primary").then(function() {})
         .catch(function(error) {
