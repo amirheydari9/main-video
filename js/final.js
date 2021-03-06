@@ -238,28 +238,15 @@ fullscreen_icon.addEventListener("click", function () {
 
     if(document.documentElement.requestFullscreen){
         document.querySelector(".myplayer").requestFullscreen();
-        if ($(window).width() <= 576) {
-            screen.orientation.lock("landscape-primary").then(function() {})
-                .catch(function(error) {
-                    alert(error);
-                });
-            $('video').css('object-fit','none');
-        }else{
-            $('video').css('object-fit', 'cover');
-        }
     }
     else if(document.documentElement.webkitRequestFullScreen){
         document.querySelector(".myplayer").webkitRequestFullScreen();
-        if ($(window).width() <= 576) {
-            screen.orientation.lock("landscape-primary").then(function() {})
-                .catch(function(error) {
-                    alert(error);
-                });
-            // $('video').css('object-fit','none');
-        }else{
-            $('video').css('object-fit', 'cover');
-        }
     }
+
+    screen.orientation.lock("landscape-primary").then(function() {})
+        .catch(function(error) {
+            alert(error);
+        });
 
     // if (!document.fullscreenElement) {
     //     mayPlayerWrapper.requestFullscreen();
