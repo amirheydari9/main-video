@@ -236,38 +236,33 @@ theater.addEventListener('click', function () {
 
 fullscreen_icon.addEventListener("click", function () {
 
-    if (!document.fullscreenElement) {
-        mayPlayerWrapper.requestFullscreen();
-        if ($(window).width() <= 576) {
-            // screen.msLockOrientation.lock("landscape-primary");
-            // screen.mozLockOrientation.lock("landscape-primary");
-            $('video').css('object-fit','none');
-            if (screen.orientation && screen.orientation.lock) {
-                screen.orientation.lock('landscape');
-            }
-            // window.screen.orientation.lock("landscape-primary");
-        }else{
-            $('video').css('object-fit', 'cover');
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-            $('video').css('object-fit', 'cover');
-        }
-    }
-},false);
+    if(document.documentElement.requestFullscreen)
+        document.querySelector(".myplayer").requestFullscreen();
+    else if(document.documentElement.webkitRequestFullScreen)
+        document.querySelector(".myplayer").webkitRequestFullScreen();
 
-// $(window).resize(function (){
-//    if(document.fullscreenElement){
-//        if ($(window).width() <= 576) {
-//            $('video').css('object-fit','none');
-//        }else{
-//            $('video').css('object-fit', 'cover');
-//        }
-//    }else{
-//        $('video').css('object-fit', 'cover');
-//    }
-// })
+    screen.orientation.lock("landscape-primary")
+        .then(function() {
+
+        })
+        .catch(function(error) {
+            alert(error);
+        });
+
+    // if (!document.fullscreenElement) {
+    //     mayPlayerWrapper.requestFullscreen();
+    //     if ($(window).width() <= 576) {
+    //         $('video').css('object-fit','none');
+    //     }else{
+    //         $('video').css('object-fit', 'cover');
+    //     }
+    // } else {
+    //     if (document.exitFullscreen) {
+    //         document.exitFullscreen();
+    //         $('video').css('object-fit', 'cover');
+    //     }
+    // }
+},false);
 
 const pic = controls.querySelector(".pic");
 if ('pictureInPictureEnabled' in document) {
