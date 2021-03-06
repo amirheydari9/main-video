@@ -245,10 +245,7 @@ fullscreen_icon.addEventListener("click", function () {
 
     // screen.orientation.unlock();
 
-    screen.orientation.lock("landscape-primary").then(function() {})
-        .catch(function(error) {
-            alert(error);
-        });
+    screen.orientation.lock("landscape-primary")
 
     // if (!document.fullscreenElement) {
     //     mayPlayerWrapper.requestFullscreen();
