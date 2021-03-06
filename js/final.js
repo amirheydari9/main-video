@@ -276,7 +276,6 @@ fullscreen_icon.addEventListener("click", function () {
             })
         } else {
             if ($(window).width() <= 576) {
-                alert('ss');
                 $('video').css('object-fit', 'none');
             } else {
                 $('video').css('object-fit', 'cover');
