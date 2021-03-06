@@ -250,14 +250,14 @@ fullscreen_icon.addEventListener("click", function () {
     //         alert(error);
     //     });
 
-    let isFullScreen = false;
-
     if(document.fullscreenElement){
         screen.orientation.unlock();
         document.exitFullscreen();
         $('video').css('object-fit', 'cover');
         return;
     }
+
+    let isFullScreen = false;
 
     if(document.documentElement.requestFullscreen){
         mayPlayerWrapper.requestFullscreen();
@@ -268,14 +268,18 @@ fullscreen_icon.addEventListener("click", function () {
         isFullScreen = true;
     }
 
-    if(isFullScreen){
-        const  ua = navigator.userAgent;
-        const  isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
-        if(isMobile){
-            $('video').css('object-fit','fit');
-            screen.orientation.lock("landscape-primary").then(function() {})
-        }else{
-            $('video').css('object-fit', 'cover');
+    if (isFullScreen) {
+        const ua = navigator.userAgent;
+        const isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
+        if (isMobile) {
+            screen.orientation.lock("landscape-primary").then(function () {
+            })
+        } else {
+            if ($(window).width() <= 576) {
+                $('video').css('object-fit', 'none');
+            } else {
+                $('video').css('object-fit', 'cover');
+            }
         }
     }
 
