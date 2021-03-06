@@ -252,6 +252,13 @@ fullscreen_icon.addEventListener("click", function () {
 
     let isFullScreen = false;
 
+    if(document.fullscreenElement){
+        screen.orientation.unlock();
+        document.exitFullscreen();
+        $('video').css('object-fit', 'cover');
+        return;
+    }
+
     if(document.documentElement.requestFullscreen){
         mayPlayerWrapper.requestFullscreen();
         isFullScreen = true;
