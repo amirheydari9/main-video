@@ -269,7 +269,9 @@ fullscreen_icon.addEventListener("click", function () {
     }
 
     if(isFullScreen){
-        if($(window).width() <= 576){
+        const  ua = navigator.userAgent;
+        const  isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
+        if(isMobile){
             $('video').css('object-fit','fit');
             screen.orientation.lock("landscape-primary").then(function() {})
         }else{
