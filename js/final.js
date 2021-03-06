@@ -239,10 +239,10 @@ fullscreen_icon.addEventListener("click", function () {
     if (!document.fullscreenElement) {
         mayPlayerWrapper.requestFullscreen();
         if ($(window).width() <= 576) {
-            window.screen.orientation.lock("landscape-primary");
             // screen.msLockOrientation.lock("landscape-primary");
             // screen.mozLockOrientation.lock("landscape-primary");
             $('video').css('object-fit','none');
+            window.screen.orientation.lock("landscape-primary");
         }else{
             $('video').css('object-fit', 'cover');
         }
