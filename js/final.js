@@ -263,7 +263,10 @@ fullscreen_icon.addEventListener("click", function () {
 
     if(isFullScreen){
         if($(window).width() <= 576){
+            $('video').css('object-fit','none');
             screen.orientation.lock("landscape-primary").then(function() {})
+        }else{
+            $('video').css('object-fit', 'cover');
         }
     }
 
