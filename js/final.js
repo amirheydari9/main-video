@@ -242,14 +242,10 @@ fullscreen_icon.addEventListener("click", function () {
             // screen.msLockOrientation.lock("landscape-primary");
             // screen.mozLockOrientation.lock("landscape-primary");
             $('video').css('object-fit','none');
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape');
+            }
             // window.screen.orientation.lock("landscape-primary");
-            screen.orientation.lock("landscape-primary")
-                .then(function() {
-
-                })
-                .catch(function(error) {
-                    alert(error);
-                });
         }else{
             $('video').css('object-fit', 'cover');
         }
