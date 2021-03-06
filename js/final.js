@@ -236,18 +236,30 @@ theater.addEventListener('click', function () {
 
 fullscreen_icon.addEventListener("click", function () {
 
-    if(document.documentElement.requestFullscreen)
+    if(document.documentElement.requestFullscreen){
         document.querySelector(".myplayer").requestFullscreen();
-    else if(document.documentElement.webkitRequestFullScreen)
+        if ($(window).width() <= 576) {
+            screen.orientation.lock("landscape-primary").then(function() {})
+                .catch(function(error) {
+                    alert(error);
+                });
+            // $('video').css('object-fit','none');
+        }else{
+            $('video').css('object-fit', 'cover');
+        }
+    }
+    else if(document.documentElement.webkitRequestFullScreen){
         document.querySelector(".myplayer").webkitRequestFullScreen();
-
-    screen.orientation.lock("landscape-primary")
-        .then(function() {
-
-        })
-        .catch(function(error) {
-            alert(error);
-        });
+        if ($(window).width() <= 576) {
+            screen.orientation.lock("landscape-primary").then(function() {})
+                .catch(function(error) {
+                    alert(error);
+                });
+            // $('video').css('object-fit','none');
+        }else{
+            $('video').css('object-fit', 'cover');
+        }
+    }
 
     // if (!document.fullscreenElement) {
     //     mayPlayerWrapper.requestFullscreen();
