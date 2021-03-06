@@ -243,7 +243,7 @@ fullscreen_icon.addEventListener("click", function () {
                 .catch(function(error) {
                     alert(error);
                 });
-            // $('video').css('object-fit','none');
+            $('video').css('object-fit','none');
         }else{
             $('video').css('object-fit', 'cover');
         }
