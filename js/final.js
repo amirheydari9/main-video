@@ -236,16 +236,40 @@ theater.addEventListener('click', function () {
 
 fullscreen_icon.addEventListener("click", function () {
 
+    // if(document.documentElement.requestFullscreen){
+    //    mayPlayerWrapper.requestFullscreen();
+    // }
+    // else if(document.documentElement.webkitRequestFullScreen){
+    //    mayPlayerWrapper.webkitRequestFullScreen();
+    // }
+    //
+    // // screen.orientation.unlock();
+    //
+    // screen.orientation.lock("landscape-primary").then(function() {})
+    //     .catch(function(error) {
+    //         alert(error);
+    //     });
+
+    let isFullScreen = false;
+
     if(document.documentElement.requestFullscreen){
-       mayPlayerWrapper.requestFullscreen();
+        mayPlayerWrapper.requestFullscreen();
+        isFullScreen = true;
     }
     else if(document.documentElement.webkitRequestFullScreen){
-       mayPlayerWrapper.webkitRequestFullScreen();
+        mayPlayerWrapper.webkitRequestFullScreen();
+        isFullScreen = true;
+    }
+
+    if(isFullScreen){
+        if($(window).width() <= 576){
+            screen.orientation.lock("landscape-primary").then(function() {})
+        }
     }
 
     // screen.orientation.unlock();
 
-    screen.orientation.lock("landscape-primary")
+    screen.orientation.lock("landscape-primary").then(function() {})
 
     // if (!document.fullscreenElement) {
     //     mayPlayerWrapper.requestFullscreen();
