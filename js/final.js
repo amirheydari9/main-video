@@ -295,6 +295,7 @@ fullscreen_Enter.addEventListener("click", function () {
         // screen.orientation.unlock();
         document.exitFullscreen();
         $('video').css('object-fit', 'cover');
+        return;
     }
 
     let isFullScreen = false;
