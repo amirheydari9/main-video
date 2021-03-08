@@ -1,19 +1,15 @@
 var mayPlayerWrapper = document.getElementsByClassName("myplayer")[0];
 var lastVal;
 
-function gettime (time) {
+function getTime(time) {
 
     let minutes = Math.floor(time / 60);
     let seconds = Math.floor(time - (minutes * 60));
     if (minutes < 10) {
         minutes = "0" + minutes;
-    } else {
-        minutes;
     }
     if (seconds < 10) {
         seconds = "0" + seconds;
-    } else {
-        seconds;
     }
     return minutes + ":" + seconds;
 }
@@ -96,7 +92,7 @@ var mute_icon = volume.querySelector(".mute");
 var volume_progress = volume.querySelector(".volume__progress");
 var input_volume = volume_progress.querySelector("input");
 var fullscreen_Enter = controls.querySelector(".fullscreen .enter");
-var fullscreen_Exit = controls.querySelector(".fullscreen .exit");
+// var fullscreen_Exit = controls.querySelector(".fullscreen .exit");
 var setting = mayPlayerWrapper.querySelector(".setting");
 var controls__progressbar = mayPlayerWrapper.querySelector(".controls__progressbar");
 var controls__btns = controls__progressbar.querySelector(".controls__btns");
@@ -106,7 +102,7 @@ var progressColor = "rgba(255, 186, 0, 1)";
 
 
 $(document).ready(function (){
-    video_time.textContent = gettime(media.duration)
+    video_time.textContent = getTime(media.duration)
 })
 
 input.addEventListener("input", function () {
@@ -142,7 +138,7 @@ function pauseanimation() {
 
 animatedBtn.addEventListener("click", function () {
     if (!animatedBtn.classList.contains("animations")) {
-        video_time.textContent = gettime(media.duration);
+        video_time.textContent = getTime(media.duration);
         playanimation();
         animatedBtn.style.display = "flex";
         
@@ -153,7 +149,7 @@ animatedBtn.addEventListener("click", function () {
 })
 
 media.addEventListener("click", function () {
-    video_time.textContent = gettime(media.duration);
+    video_time.textContent = getTime(media.duration);
     if (media.paused) {
         playanimation();
         animatedBtn.style.display = "flex";
@@ -165,7 +161,7 @@ media.addEventListener("click", function () {
 });
 
 play.addEventListener("click", function () {
-    video_time.textContent = gettime(media.duration);
+    video_time.textContent = getTime(media.duration);
     if (media.paused) {
         playanimation();
         animatedBtn.style.display = "flex";
@@ -177,7 +173,7 @@ play.addEventListener("click", function () {
 });
 
 pause.addEventListener("click", function () {
-    video_time.textContent = gettime(media.duration);
+    video_time.textContent = getTime(media.duration);
     if (media.played) {
         pauseanimation();
         animatedBtn.style.display = "flex";
@@ -191,7 +187,7 @@ pause.addEventListener("click", function () {
 media.addEventListener("timeupdate", progressRange);
 
 function progressRange() {
-    current_time.textContent = gettime(media.currentTime);
+    current_time.textContent = getTime(media.currentTime);
     let barlength = (media.currentTime / media.duration) * 100;
     input.style.background = `linear-gradient(90deg, ${progressColor} ${barlength}%, #000000E6 0%)`;
 }
@@ -338,16 +334,16 @@ fullscreen_Enter.addEventListener("click", function () {
 
 });
 
-fullscreen_Exit.addEventListener("click", function () {
-    // (document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen).call(document);
-
-    if(document.fullscreenElement){
-        // screen.orientation.unlock();
-        document.exitFullscreen();
-        $('video').css('object-fit', 'cover');
-    }
-
-});
+// fullscreen_Exit.addEventListener("click", function () {
+//     // (document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen).call(document);
+//
+//     if(document.fullscreenElement){
+//         // screen.orientation.unlock();
+//         document.exitFullscreen();
+//         $('video').css('object-fit', 'cover');
+//     }
+//
+// });
 
 
 const pic = controls.querySelector(".pic");
@@ -702,7 +698,7 @@ function initAdsFor(videoID) {
             divADv.classList.add("controls__progressbar-current-ADV");
             controls__progressbar.append(divADv);
 
-            current_time.textContent = gettime(media.currentTime);
+            current_time.textContent = getTime(media.currentTime);
             let barlength = (media.currentTime / media.duration) * 100;
             divADv.style.background = `linear-gradient(90deg, rgba(0, 206,209, 1) ${barlength}%, #000000E6 0%)`;
         }
