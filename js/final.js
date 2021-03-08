@@ -1,7 +1,7 @@
 var mayPlayerWrapper = document.getElementsByClassName("myplayer")[0];
 var lastVal;
 
-const gettime = function (time) {
+function gettime (time) {
 
     let minutes = Math.floor(time / 60);
     let seconds = Math.floor(time - (minutes * 60));
