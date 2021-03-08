@@ -53,7 +53,7 @@ const controlsHtml = `
             </div>
             <div class="btns fullscreen">
                 <img class="icon enter" src="./img/Fullscreen.svg" alt=""/>
-                <img class="icon exit mt-1" src="./img/Fullscreen.svg" alt=""/>
+<!--                <img class="icon exit mt-1" src="./img/Fullscreen.svg" alt=""/>-->
             </div>
         </div>
     </div>`;
@@ -277,6 +277,12 @@ function exitListener () {
 }
 
 fullscreen_Enter.addEventListener("click", function () {
+
+    if(document.fullscreenElement){
+        // screen.orientation.unlock();
+        document.exitFullscreen();
+        $('video').css('object-fit', 'cover');
+    }
 
     let isFullScreen = false;
 
