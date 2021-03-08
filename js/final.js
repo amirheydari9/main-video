@@ -322,8 +322,8 @@ fullscreen_Enter.addEventListener("click", function () {
     if (isFullScreen) {
         const ua = navigator.userAgent;
         const isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
-        fullscreen_Enter.style.display = "none";
-        fullscreen_Exit.style.display = "flex";
+        // fullscreen_Enter.style.display = "none";
+        // fullscreen_Exit.style.display = "flex";
         if (isMobile) {
             screen.orientation.lock("landscape-primary").then(function () {
             })
