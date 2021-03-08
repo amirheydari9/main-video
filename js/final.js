@@ -1,6 +1,23 @@
 var mayPlayerWrapper = document.getElementsByClassName("myplayer")[0];
 var lastVal;
 
+const gettime = function (time) {
+
+    let minutes = Math.floor(time / 60);
+    let seconds = Math.floor(time - (minutes * 60));
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    } else {
+        minutes;
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    } else {
+        seconds;
+    }
+    return minutes + ":" + seconds;
+}
+
 const controlsHtml = `
     <div class="controls__progressbar">
         <input class="controls__progressbar-current" type="range" min="1" max="100" step="1" value="0" />
@@ -367,23 +384,6 @@ $('.speed_rate_item').click(function (event) {
 media.addEventListener("mouseenter", function () {
     speed.style.display = "none";
 });
-
-const gettime = function (time) {
-
-    let minutes = Math.floor(time / 60);
-    let seconds = Math.floor(time - (minutes * 60));
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    } else {
-        minutes;
-    }
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    } else {
-        seconds;
-    }
-    return minutes + ":" + seconds;
-}
 
 
 function AdSlot(_name, _type, _time, _zone) {
