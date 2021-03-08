@@ -254,27 +254,27 @@ theater.addEventListener('click', function () {
 
 })
 
-const rfs =
-    mayPlayerWrapper.requestFullscreen ||
-    mayPlayerWrapper.webkitRequestFullScreen ||
-    mayPlayerWrapper.mozRequestFullScreen ||
-    mayPlayerWrapper.msRequestFullscreen;
-
-['webkitfullscreenchange', 'mozfullscreenchange', 'fullscreenchange', 'msfullscreenchange'].forEach(
-    eventName => $(document).on(eventName, exitListener)
-);
+// const rfs =
+//     mayPlayerWrapper.requestFullscreen ||
+//     mayPlayerWrapper.webkitRequestFullScreen ||
+//     mayPlayerWrapper.mozRequestFullScreen ||
+//     mayPlayerWrapper.msRequestFullscreen;
+//
+// ['webkitfullscreenchange', 'mozfullscreenchange', 'fullscreenchange', 'msfullscreenchange'].forEach(
+//     eventName => $(document).on(eventName, exitListener)
+// );
 
 // rfs.call(mayPlayerWrapper, Element.ALLOW_KEYBOARD_INPUT);
 
-function exitListener () {
-    const state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
-    if (!state) {
-        // console.log('exiting');
-        fullscreen_Exit.style.display = "none";
-        fullscreen_Enter.style.display = "flex";
-    }
-    // else console.log('entering');
-}
+// function exitListener () {
+//     const state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+//     if (!state) {
+//         // console.log('exiting');
+//         fullscreen_Exit.style.display = "none";
+//         fullscreen_Enter.style.display = "flex";
+//     }
+//     // else console.log('entering');
+// }
 
 fullscreen_Enter.addEventListener("click", function () {
 
