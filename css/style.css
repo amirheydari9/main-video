@@ -469,7 +469,7 @@ span.skipBtn.disabled {
         display: none;
     }
     .btns.forward {
-        margin-left:5px !important ;
+        margin-left:7px !important ;
     }
 }
 @media only screen and (max-width:400px) {
