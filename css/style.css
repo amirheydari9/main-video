@@ -387,7 +387,7 @@ span.skipBtn.disabled {
 }
 @media only screen and (max-width:578px) {
     .myplayer .controls__btns .left .btns:not(:first-child) {
-        margin-left : 10px;
+        margin-left : 7px;
     }
     .rewind img , .forward img {
         width: 22px;
