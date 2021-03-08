@@ -53,7 +53,7 @@ const controlsHtml = `
             </div>
             <div class="btns fullscreen">
                 <img class="icon enter" src="./img/Fullscreen.svg" alt=""/>
-                <img class="icon exit mt-1" src="./img/fullscreen2.svg" alt=""/>
+                <img class="icon exit mt-1" src="./img/Fullscreen.svg" alt=""/>
             </div>
         </div>
     </div>`;
