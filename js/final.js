@@ -319,7 +319,7 @@ fullscreen_Exit.addEventListener("click", function () {
     // (document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen).call(document);
 
     if(document.fullscreenElement){
-        // screen.orientation.unlock();
+        screen.orientation.unlock();
         document.exitFullscreen();
         $('video').css('object-fit', 'cover');
     }
