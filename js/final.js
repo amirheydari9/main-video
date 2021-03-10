@@ -295,6 +295,7 @@ fullscreen_Enter.addEventListener("click", function () {
         // screen.orientation.unlock();
         document.exitFullscreen();
         $('video').css('object-fit', 'cover');
+        theater.style.display = 'flex';
         return;
     }
 
@@ -314,16 +315,16 @@ fullscreen_Enter.addEventListener("click", function () {
         isFullScreen = true;
     }
 
-    // rfs.call(mayPlayerWrapper, Element.ALLOW_KEYBOARD_INPUT);
+        // rfs.call(mayPlayerWrapper, Element.ALLOW_KEYBOARD_INPUT);
 
     if (isFullScreen) {
+        theater.style.display = 'none';
         const ua = navigator.userAgent;
         const isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(ua);
         // fullscreen_Enter.style.display = "none";
         // fullscreen_Exit.style.display = "flex";
         if (isMobile) {
-            screen.orientation.lock("landscape-primary").then(function () {
-            })
+            screen.orientation.lock("landscape-primary").then(function () {});
         } else {
             if ($(window).width() <= 576) {
                 $('video').css('object-fit', 'contain');
