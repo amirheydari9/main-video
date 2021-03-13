@@ -101,9 +101,9 @@ var seek_tooltip = mayPlayerWrapper.querySelector(".seek-tooltip");
 var progressColor = "rgba(255, 186, 0, 1)";
 
 
-$(document).ready(function (){
-    video_time.textContent = getTime(media.duration)
-})
+// $(document).ready(function (){
+//     video_time.textContent = getTime(media.duration)
+// })
 
 input.addEventListener("input", function () {
     media.currentTime = (this.value / 100) * media.duration;
@@ -187,6 +187,7 @@ pause.addEventListener("click", function () {
 media.addEventListener("timeupdate", progressRange);
 
 function progressRange() {
+    controls.style.display = 'flex';
     current_time.textContent = getTime(media.currentTime);
     let barlength = (media.currentTime / media.duration) * 100;
     input.style.background = `linear-gradient(90deg, ${progressColor} ${barlength}%, #000000E6 0%)`;

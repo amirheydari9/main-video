@@ -25,7 +25,7 @@ body {
 .myplayer .myplayer__controls {
     position: absolute;
     bottom: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     background: rgba(0,0,0,0.7);;
@@ -456,9 +456,9 @@ span.skipBtn.disabled {
         width: 25px;
         height: 25px;
     }
-    .myplayer .controls__btns {
-        display: flex;
-    }
+    /*.myplayer .controls__btns {*/
+    /*    display: flex;*/
+    /*}*/
     .timer{
         font-size: 0.8em;
     }
